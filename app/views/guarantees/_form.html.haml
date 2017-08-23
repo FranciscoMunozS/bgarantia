@@ -1,0 +1,72 @@
+= simple_form_for @guarantee, html: { multipart: true } do |f|
+  - if @guarantee.errors.any?
+    #errors
+      %h2
+        = pluralize(@guarantee.errors.count, "error")
+        se evito que este registro fuera creado
+      %ul
+        - @guarantee.errors.full_messages.each do |msg|
+          %li= msg
+  - if params[:action] != "new"
+    .card
+      .card-body
+        .form-row
+          .form-group.col-md-6
+            = f.input :state, label: "Estado boleta", input_html: { class: 'form-control' }
+          .form-group.col-md-6
+            = f.input :devolution_number, label: "Numero de devolución", input_html: { class: 'form-control' }
+        .form-row
+          .form-group.col-md-4
+            = f.input :devolution_date, as: :date, order: [:day, :month, :year], label: 'Fecha de devolución', input_html: { class: 'form-control' }
+          .form-group.col-md-4
+            = f.input :devolution_return, label: "Medio de devolución", input_html: { class: 'form-control' }
+          .form-group.col-md-4
+            = f.input :sectorialist_devolution, label: "Sectorialista", input_html: { class: 'form-control' }
+        .form-row
+          .form-group.col-md-6
+            = f.input :email, label: "Correo electronico", input_html: { class: 'form-control' }
+          .form-group.col-md-6
+            = f.input :technical_unit, label: "Unidad tecnica", input_html: { class: 'form-control' }
+        .form-row
+          .form-group.col-md-12
+            = f.input :observation, label: "Observaciones", input_html: { class: 'form-control' }
+  %br
+  .card
+    .card-body
+      .form-row
+        .form-group.col-md-4
+          = f.input :income_number, label: 'Numero de ingreso', input_html: { class: 'form-control' }
+        .form-group.col-md-4
+          = f.input :income_applicant, label: 'Solicitante de ingreso', input_html: { class: 'form-control' }
+        .form-group.col-md-4
+          = f.input :income_date, as: :date, order: [:day, :month, :year], label: 'Fecha de ingreso', input_html: { class: 'form-control' }
+      .form-row
+        .form-group.col-md-6
+          = f.input :borrower_name, label: 'Nombre tomador', input_html: { class: 'form-control' }
+        .form-group.col-md-6
+          = f.input :borrower_id, label: 'RUT tomador', input_html: { class: 'form-control' }
+      .form-row
+        .form-group.col-md-12
+          = f.input :bank_name, label: 'Nombre banco', input_html: { class: 'form-control' }
+      .form-row
+        .form-group.col-md-6
+          = f.input :value_guarantee, label: 'Valor garantia', input_html: { class: 'form-control' }
+        .form-group.col-md-6
+          = f.input :currency_guarantee, label: 'Moneda garantia', input_html: { class: 'form-control' }
+      .form-row
+        .form-group.col-md-4
+          = f.input :due_date, as: :date, order: [:day, :month, :year], label: 'Fecha de vencimiento', input_html: { class: 'form-control' }
+        .form-group.col-md-4
+          = f.input :bail, label: 'Caución', input_html: { class: 'form-control' }
+        .form-group.col-md-4
+          = f.input :detail, label: 'Detalle', input_html: { class: 'form-control' }
+      .form-row
+        .form-group.col-md-6
+          = f.input :bip, label: 'BIP', input_html: { class: 'form-control' }
+        - if params[:action] != "edit"
+          .form-group.col-md-6
+            = f.input :email, label: 'Correo electronico', input_html: { class: 'form-control' }
+          .form-group.col-md-12
+            = f.input :observation, label: 'Observaciones', input_html: { class: 'form-control' }
+
+      = f.button :submit, class: "btn btn-outline-primary"
