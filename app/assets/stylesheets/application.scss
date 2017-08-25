@@ -21,6 +21,50 @@
     }
 }
 
-.nav {
-  background-color: #293a46;
+.hover08 figure:hover img {
+	-webkit-filter: grayscale(0);
+	filter: grayscale(0);
 }
+
+.alert {
+   position: absolute;
+   top: 0;
+   width: 100%;
+   z-index: 999;
+   background: rgba(135, 216, 211, 0.85);
+   padding: 1.15rem 0;
+   text-align: center;
+   margin: 0;
+   font-size: 0.75rem;
+   font-weight: 700;
+   color: #FFFFFF;
+   letter-spacing: 1px;
+ }
+
+.table-hover{
+  font-size: 15px;
+}
+
+abbr[title="required"] {
+  display: none;
+}
+
+nav {
+	.navbar-brand {
+		a {
+			color: #A9A9A9;
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+.centered {
+   margin:auto;
+   max-width: 300px;
+ }
+
+ .center {
+    padding-left: 20rem;
+ }

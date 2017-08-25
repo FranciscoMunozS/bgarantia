@@ -19,6 +19,9 @@ gem 'devise'
 gem 'haml'
 gem 'bootstrap', '~> 4.0.0.beta'
 gem 'rails_admin'
+gem 'axlsx_rails'
+gem 'breadcrumbs_on_rails'
+gem 'searchkick'
 
 group :development, :test do
   gem 'byebug', platform: :mri

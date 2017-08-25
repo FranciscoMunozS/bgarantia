@@ -1,12 +1,5 @@
 .card
   .card-body
-    = link_to 'Descargar Excel', guarantees_path(format: :xlsx), class: 'btn btn-outline-secondary float-right'
-    .row
-      .col-md-4
-        = form_tag search_guarantees_path, method: :get, class: 'form-inline', role: "search" do
-          = text_field_tag :search, params[:search], class: 'form-control mb-2 mr-sm-2 mb-sm-0', placeholder: 'Buscar...'
-          = submit_tag "Buscar", name: nil, class: "btn btn-outline-success"
-    %br
     %table.table.table-hover
       %thead
         %tr

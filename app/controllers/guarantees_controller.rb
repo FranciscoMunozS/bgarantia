@@ -2,14 +2,31 @@ class GuaranteesController < ApplicationController
   before_action :find_guarantee, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
+  add_breadcrumb "Boletas de garantía", :root_path
+
+  def search
+    if params[:search].present?
+      @guarantees = Guarantee.search(params[:search])
+    else
+      @guarantees = Guarantee.all
+    end
+  end
+
   def index
     @guarantees = Guarantee.all
+    respond_to do |format|
+      format.html
+      format.xlsx {
+        response.headers['Content-Disposition'] = 'attachement; filename="boletas.xlsx"'
+      }
+    end
   end
 
   def show
   end
 
   def new
+    add_breadcrumb "Nuevo", :new_guarantee_path
     @guarantee = current_user.guarantees.build
   end
 
@@ -24,6 +41,7 @@ class GuaranteesController < ApplicationController
   end
 
   def edit
+    add_breadcrumb "Editar", :edit_guarantee_path
   end
 
   def update
@@ -42,7 +60,7 @@ class GuaranteesController < ApplicationController
   private
 
   def guarantee_params
-    params.require(:guarantee).permit(:income_number, :income_date, :income_applicant, :borrower_name, :borrower_id, :bank_name, :value_guarantee, :currency_guarantee, :due_date, :bail, :detail, :bip, :email, :observation, :state, :devolution_number, :devolution_return, :sectorialist_devolution, :technical_unit)
+    params.require(:guarantee).permit(:income_number, :income_date, :income_applicant, :borrower_name, :borrower_id, :bank_name, :value_guarantee, :currency_guarantee, :due_date, :bail, :detail, :bip, :email, :observation, :state, :devolution_number, :devolution_return, :devolution_date, :sectorialist_devolution, :technical_unit)
   end
 
   def find_guarantee
