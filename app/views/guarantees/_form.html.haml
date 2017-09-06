@@ -7,31 +7,6 @@
       %ul
         - @guarantee.errors.full_messages.each do |msg|
           %li= msg
-  - if params[:action] != "new"
-    .card
-      .card-body
-        %h3 Datos boleta de garantía
-        %hr
-        .form-row
-          .form-group.col-md-6
-            = f.input :state, label: "Estado boleta", input_html: { class: 'form-control' }
-          .form-group.col-md-6
-            = f.input :devolution_number, label: "Numero de devolución", input_html: { class: 'form-control' }
-        .form-row
-          .form-group.col-md-4
-            = f.input :devolution_date, as: :date, order: [:day, :month, :year], label: 'Fecha de devolución', input_html: { class: 'form-control' }
-          .form-group.col-md-4
-            = f.input :devolution_return, label: "Medio de devolución", input_html: { class: 'form-control' }
-          .form-group.col-md-4
-            = f.input :sectorialist_devolution, label: "Sectorialista", input_html: { class: 'form-control' }
-        .form-row
-          .form-group.col-md-6
-            = f.input :email, label: "Correo electronico", input_html: { class: 'form-control' }
-          .form-group.col-md-6
-            = f.input :technical_unit, label: "Unidad tecnica", input_html: { class: 'form-control' }
-        .form-row
-          .form-group.col-md-12
-            = f.input :observation, label: "Observaciones", input_html: { class: 'form-control' }
   %br
   .card
     .card-body

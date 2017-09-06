@@ -14,6 +14,7 @@ class GuaranteesController < ApplicationController
 
   def index
     @guarantees = Guarantee.all
+    @guarantees = Guarantee.paginate(:page => params[:page], :per_page => 30)
     respond_to do |format|
       format.html
       format.xlsx {

@@ -22,6 +22,7 @@ gem 'rails_admin'
 gem 'axlsx_rails'
 gem 'breadcrumbs_on_rails'
 gem 'searchkick'
+gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 
 group :development, :test do
   gem 'byebug', platform: :mri

@@ -17,8 +17,6 @@
           %th
             Vencimiento
           %th
-            Devolución
-          %th
             Detalle
           %th
             Analista
@@ -34,9 +32,10 @@
             %td= guarantee.income_number
             %td= guarantee.income_date
             %td= guarantee.due_date
-            %td= guarantee.devolution_date
             %td= guarantee.detail
             %td= guarantee.sectorialist_devolution
             %td= guarantee.value_guarantee
             %td= guarantee.bip
             %td= link_to 'Ver detalles', edit_guarantee_path(guarantee), class: 'btn btn-outline-secondary btn-sm'
+            
+    = will_paginate @guarantees
